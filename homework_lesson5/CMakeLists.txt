@@ -12,7 +12,7 @@ set(MAIN_FILE_RESULT "result.cpp")
 
 SET(STANDARD "cxx_std_17")
 
-set(HPP_DIR ../include)
+set(HPP_DIR "../include")
 
 add_library(compiler_flags INTERFACE)
 target_compile_features(compiler_flags INTERFACE ${STANDARD})
