@@ -1,7 +1,7 @@
 #include <iostream>
-#include "random_value.hpp"
-#include "input_data.hpp"
-#include "result.hpp"
+#include "include/random_value.hpp"
+#include "include/input_data.hpp"
+#include "include/result.hpp"
 
 int main(int argc, char const *argv[])
 {
