@@ -16,7 +16,8 @@ int main(int argc, char const *argv[])
         std::string val = argv[i];
         if("-table" == val)
         {
-            read_result_from_file(file_name);
+            // read_result_from_file(file_name);
+            read_result_from_file_only_records(file_name);
             return 0;
         }
 
@@ -56,8 +57,9 @@ int main(int argc, char const *argv[])
     } 
     while (!correct_answer);
     write_result_to_file(file_name, user_name, number_of_tries);
-    std::cout << "you win! " << "attempts = " << number_of_tries << std::endl;        
-    read_result_from_file(file_name);
+    std::cout << "you win! " << "attempts = " << number_of_tries << std::endl;     
+    // read_result_from_file(file_name);   
+    read_result_from_file_only_records(file_name);
     
 
     return 0;
