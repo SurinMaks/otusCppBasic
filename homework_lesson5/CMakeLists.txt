@@ -19,7 +19,7 @@ target_compile_features(compiler_flags INTERFACE ${STANDARD})
 
 cmake_minimum_required(VERSION 3.12)
 
-project(${PROJ_NAME})
+project(${PROJ_NAME} VERSION 2.3)
 
 add_subdirectory(src)
 
