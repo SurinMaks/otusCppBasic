@@ -15,5 +15,5 @@ public:
 
 private:
     Velocity velocity;
-    Point point;
+    Point center;
 };
