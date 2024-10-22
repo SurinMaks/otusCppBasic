@@ -14,5 +14,5 @@ public:
     double getMass() const;
 
 private:
-
+    Velocity velocity;
 };
