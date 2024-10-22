@@ -12,4 +12,7 @@ public:
     Point getCenter() const;
     double getRadius() const;
     double getMass() const;
+
+private:
+
 };
