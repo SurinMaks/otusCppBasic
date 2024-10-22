@@ -36,6 +36,7 @@ void Ball::draw(Painter& painter) const {
  */
 void Ball::setCenter(const Point& center) {
     // TODO: место для доработки
+    this->center = center;
 }
 
 /**
@@ -43,7 +44,7 @@ void Ball::setCenter(const Point& center) {
  */
 Point Ball::getCenter() const {
     // TODO: место для доработки
-    return {};
+    return center;
 }
 
 /**
