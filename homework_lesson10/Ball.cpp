@@ -4,10 +4,30 @@
 /**
  * Конструктор класса Ball
  * @param radius радиус шара
+ * @param x координаты центра шара (x, y)
+ * @param y координаты центра шара (x, y)
+ * @param vx его скорости (vx, vy)
+ * @param vy его скорости (vx, vy)
+ * @param red три составляющие цвета шара
+ * @param green три составляющие цвета шара
+ * @param blue три составляющие цвета шара
+ * @param isCollidable требуется ли обрабатывать пересечение шаров как столкновение
  */
-Ball::Ball(double radius)
+Ball::Ball(double radius, double x, double y, double vx, double vy, double red, double green, double blue, bool isCollidable)
 {
     this->radius = radius;
+
+    center.x = x;
+    center.y = y;
+    
+    velocity.x = vx;
+    velocity.y = vy;
+
+    this->red = red;
+    this->green = green;
+    this->blue = blue;
+
+    this->isCollidable = isCollidable;
 }
 
 /**
@@ -16,7 +36,8 @@ Ball::Ball(double radius)
  */
 void Ball::setVelocity(const Velocity& velocity) {
     // TODO: место для доработки
-    this->velocity = velocity;
+    this->velocity = velocity.vector();
+
 }
 
 /**
@@ -37,6 +58,8 @@ Velocity Ball::getVelocity() const {
  */
 void Ball::draw(Painter& painter) const {
     // TODO: место для доработки
+    Color color(red, green, blue);
+    painter.draw(center,radius,color);
 }
 
 /**
@@ -45,7 +68,8 @@ void Ball::draw(Painter& painter) const {
  */
 void Ball::setCenter(const Point& center) {
     // TODO: место для доработки
-    this->center = center;
+    this->center.x = center.x;
+    this->center.y = center.y;
 }
 
 /**

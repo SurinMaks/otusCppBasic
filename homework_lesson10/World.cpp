@@ -2,6 +2,8 @@
 #include "Painter.hpp"
 #include <fstream>
 
+#include <vector>
+
 // Длительность одного тика симуляции.
 // Подробнее см. update()
 // Изменять не следует
@@ -69,6 +71,8 @@ World::World(const std::string& worldFilePath) {
         // сконструируем объект Ball ball;
         // добавьте его в конец контейнера вызовом
         // balls.push_back(ball);
+        Ball ball(radius, x, y, vx, vy, red, green, blue, isCollidable);
+        balls.push_back(ball);
     }
 }
 

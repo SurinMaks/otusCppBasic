@@ -5,7 +5,7 @@
 
 class Ball {
 public:
-    Ball(double radius);
+    Ball(double radius, double x, double y, double vx, double vy, double red, double green, double blue, bool isCollidable);
     void setVelocity(const Velocity& velocity);
     Velocity getVelocity() const;
     void draw(Painter& painter) const;
@@ -15,7 +15,20 @@ public:
     double getMass() const;
 
 private:
-    Velocity velocity;
+    // Velocity velocity;
     Point center;
+    Point velocity;
+    // Color color;
+    // double x;
+    // double y;
+    double vx;
+    double vy;
     double radius;
+
+    double red;
+    double green;
+    double blue;
+    
+
+    bool isCollidable;
 };
