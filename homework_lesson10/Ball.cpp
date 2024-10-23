@@ -2,6 +2,15 @@
 #include <cmath>
 
 /**
+ * Конструктор класса Ball
+ * @param radius радиус шара
+ */
+Ball::Ball(double radius)
+{
+    this->radius = radius;
+}
+
+/**
  * Задает скорость объекта
  * @param velocity новое значение скорости
  */

@@ -5,6 +5,7 @@
 
 class Ball {
 public:
+    Ball(double radius);
     void setVelocity(const Velocity& velocity);
     Velocity getVelocity() const;
     void draw(Painter& painter) const;
@@ -16,4 +17,5 @@ public:
 private:
     Velocity velocity;
     Point center;
+    double radius;
 };
