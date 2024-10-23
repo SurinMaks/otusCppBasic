@@ -63,7 +63,7 @@ Point Ball::getCenter() const {
  */
 double Ball::getRadius() const {
     // TODO: место для доработки
-    return {};
+    return radius;
 }
 
 /**
@@ -75,5 +75,5 @@ double Ball::getRadius() const {
  */
 double Ball::getMass() const {
     // TODO: место для доработки
-    return {};
+    return M_PI * (radius * radius * radius) * 4. / 3.;
 }
