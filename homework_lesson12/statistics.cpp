@@ -53,16 +53,40 @@ public:
 	}
 
 private:
-	double m_max = 0;
+	double m_max = 0.0;
+};
+
+class Mean : public IStatistics{
+	void update(double next) override{
+		m_temp += next;
+		m_mean = m_temp/m_count;
+		++m_count;
+
+	}
+
+	double eval() const override{
+		return m_mean;
+	}
+
+	const char * name() const{
+		return "mean";
+	}
+
+	private:
+		double m_mean;
+		double m_temp = 0.0;
+		int m_count=1;
+
 };
 
 int main() {
 
-	const size_t statistics_count = 2;
+	const size_t statistics_count = 3;
 	IStatistics *statistics[statistics_count];
 
 	statistics[0] = new Min{};
 	statistics[1] = new Max{};
+	statistics[2] = new Mean{};
 
 	double val = 0;
 	while (std::cin >> val) {
