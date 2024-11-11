@@ -41,6 +41,10 @@ public:
 	}
 
 	void update(double next) override {
+		if(first){
+			first = false;
+			m_max = next;
+		}
 		if (next > m_max) {
 			m_max = next;
 		}
@@ -55,7 +59,8 @@ public:
 	}
 
 private:
-	double m_max = 0.0;
+	double m_max;
+	bool first = true;
 };
 
 class Mean : public IStatistics{
