@@ -37,9 +37,6 @@ private:
 
 class Max : public IStatistics {
 public:
-	Max() : m_max{std::numeric_limits<double>::min()} {
-	}
-
 	void update(double next) override {
 		if(first){
 			first = false;
