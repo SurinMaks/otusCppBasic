@@ -4,6 +4,8 @@
 
 class Max : public IStatistics {
 public:
+	Max();
+	
 	void update(double next) override;
 
 	double eval() const override;
@@ -12,7 +14,7 @@ public:
 
 private:
 	double m_max;
-	bool first = true;
+	// bool first = true;
 };
 
 #endif
