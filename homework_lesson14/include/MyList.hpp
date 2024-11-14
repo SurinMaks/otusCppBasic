@@ -21,15 +21,15 @@ public:
         };
 
         void push_bach(const T& value) override {
-
+            incrementSize();
         };
 
         void insert(const T& value, const unsigned int position) override {
-
+            incrementSize();
         };
 
         void erase(const unsigned int position) override {
-
+            decrementSize();
         };
 
         unsigned int size() override {
@@ -39,7 +39,10 @@ public:
         //operator[] хз че с ним делать ПОДУМАТЬ
 private:
         void incrementSize(){
-            m_size++;
+            ++m_size;
+        }
+        void decrementSize(){
+            --m_size;
         }
         struct MyNode
         {
