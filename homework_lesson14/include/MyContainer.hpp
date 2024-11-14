@@ -7,7 +7,7 @@
 template<typename T>
 class MyContainer {
     public:
-    virtual ~MyContainer();
+    virtual ~MyContainer(){};
     virtual void push_bach(const T& value) = 0;
     virtual void insert(const T& value, const unsigned int position) = 0;
     virtual void erase(const unsigned int position) = 0;
@@ -16,9 +16,3 @@ class MyContainer {
 };
 
 #endif
-
-//Не помимаю зачем это тут. Но без этого main.cpp не собирается
-template <typename T>
-inline MyContainer<T>::~MyContainer()
-{
-}
