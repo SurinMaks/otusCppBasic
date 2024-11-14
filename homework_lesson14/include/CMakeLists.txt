@@ -1,0 +1,2 @@
+target_include_directories(${FUNC_NAME_MYCONTAINER} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(${FUNC_NAME_MYLIST} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
