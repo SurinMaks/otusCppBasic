@@ -2,16 +2,21 @@
 #define _MYCONTAINER_H_
 
 /**
- * Шаблонный класс для односвязного списка
+ * Класс для односвязного списка .. Пока сделаем для интов
  */
 template<typename T>
 class MyContainer {
     public:
     virtual ~MyContainer(){};
     virtual void push_bach(const T& value) = 0;
-    virtual void insert(const T& value, const unsigned int position) = 0;
-    virtual void erase(const unsigned int position) = 0;
-    virtual unsigned int size() = 0;
+    virtual void insertFromPosition(const T& value, const unsigned int position) = 0;
+    virtual void insertFromEnd(const T& value) = 0;
+    virtual void insertFromBegin(const T& value) = 0;
+    virtual void eraseFromPosition(const unsigned int position) = 0;
+    virtual void eraseFromEnd() = 0;
+    virtual void eraseFromBegin() = 0;
+    virtual unsigned int size() const = 0;
+    virtual void printList() const = 0;
     //operator[] хз че с ним делать ПОДУМАТЬ
 };
 
