@@ -7,6 +7,9 @@ set(MAIN_FILE_MYCONTAINER "MyContainer.cpp")
 set(FUNC_NAME_MYLIST "MyList")
 set(MAIN_FILE_MYLIST "MyList.cpp")
 
+set(FUNC_NAME_MYARRAY "MyArray")
+set(MAIN_FILE_MYARRAY "MyArray.cpp")
+
 SET(STANDARD "cxx_std_17")
 
 set(HPP_DIR "../include")
@@ -25,5 +28,6 @@ add_executable(${PROJ_NAME} ${ROOT_FILE})
 
 target_link_libraries(${PROJ_NAME} PUBLIC ${FUNC_NAME_MYCONTAINER} compiler_flags)
 target_link_libraries(${PROJ_NAME} PUBLIC ${FUNC_NAME_MYLIST} compiler_flags)
+target_link_libraries(${PROJ_NAME} PUBLIC ${FUNC_NAME_MYARRAY} compiler_flags)
 
 target_include_directories(${PROJ_NAME} PUBLIC ${PROJECT_BINARY_DIR})
