@@ -35,6 +35,27 @@ public:
         };
 
         void insertFromPosition(const T& value, const unsigned int position) override {
+            if((position < 1) || position > m_size){
+                std::cout << "Position should  be >= 1 and <=" << m_size << '\n';
+                return;
+            }
+            if(position == 1){
+                insertFromBegin(value);
+                return;
+            }
+            if(position == m_size){
+                insertFromEnd(value);
+                return;
+            }
+            struct MyNode* new_Node = new struct MyNode(value);
+
+            struct MyNode* tmp_Node = m_head;
+            for (unsigned int i = 1; i < position-1; ++i){
+                tmp_Node = tmp_Node->m_next;
+            }
+            //Not finished
+            new_Node->m_next = tmp_Node->m_next;
+            tmp_Node->m_next = new_Node;
             incrementSize();
         };
 

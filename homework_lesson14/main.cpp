@@ -22,7 +22,11 @@ int main(int argc, char const *argv[])
     // myList0.printList();
     // myList0.eraseFromPosition(3);
     // myList0.eraseFromPosition(3);
-    myList0.eraseFromPosition(10);
+    myList0.eraseFromPosition(5);
+    myList0.printList();
+    myList0.insertFromPosition(11, 6);
+    myList0.printList();
+    myList0.insertFromPosition(12, 3);
     myList0.printList();
     std::cout << "Size=" << myList0.size() << '\n';
     return 0;
