@@ -145,7 +145,14 @@ public:
             }
         };
 
-        //operator[] хз че с ним делать ПОДУМАТЬ
+         T operator[](const T& index) const{
+            struct MyNode* tmp_Node = m_head;
+            for (unsigned int i = 1; i < index; ++i){
+                tmp_Node = tmp_Node->m_next;
+            }
+            return tmp_Node->m_value;
+            
+         };
 private:
         struct MyNode
         {
