@@ -6,6 +6,7 @@
 
 int main(int argc, char const *argv[])
 {
+    std::cout << "Example List\n";
     MyList myList0{0};
     myList0.push_bach(1);
     myList0.push_bach(2);
@@ -32,11 +33,35 @@ int main(int argc, char const *argv[])
 
     myList0.insertFromEnd(30);
     myList0.printList();
-    // std::cout << "Size=" << myList0.size() << '\n';
-    // std::cout << myList0[10] << '\n';
 
-
-
+    std::cout << "\nExample Array\n";
+    MyArray<int> myArray;
+    myArray.push_bach(0);
+    myArray.push_bach(1);
+    myArray.push_bach(2);
+    myArray.push_bach(3);
+    myArray.push_bach(4);
+    myArray.push_bach(5);
+    myArray.push_bach(6);
+    myArray.push_bach(7);
+    myArray.push_bach(8);
+    myArray.push_bach(9);
+    std::cout << "Value=" << myArray[1] << '\n';
+    // myArray.insertFromEnd(10);
+    // myArray.insertFromEnd(11);
+    // myArray.printList();
+    // myArray.insertFromBegin(12);
+    // myArray.insertFromBegin(13);
+    // myArray.insertFromBegin(14);
+    // myArray.printList();
+    // myArray.eraseFromEnd();
+    // myArray.eraseFromEnd();
+    // myArray.printList();
+    // myArray.eraseFromBegin();
+    // myArray.eraseFromBegin();
+    myArray.printList();
+    // std::cout << "Size=" << myArray.size() << '\n';
+    
     // std::list<int> list1={0,1,2,3,4,5,6,7,8,9}; 
     
     // std::cout << "The original list is : "; 

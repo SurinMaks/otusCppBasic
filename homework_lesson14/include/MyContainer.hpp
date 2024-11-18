@@ -17,7 +17,7 @@ class MyContainer {
     virtual void eraseFromBegin() = 0;
     virtual unsigned int size() const = 0;
     virtual void printList() const = 0;
-    //operator[] хз че с ним делать ПОДУМАТЬ
+    virtual T operator[](const T& index) const = 0;
 };
 
 #endif
