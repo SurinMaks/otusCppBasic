@@ -3,27 +3,24 @@
 
 #include "MyContainer.hpp"
 #include <iostream>
+#include <memory>
 
 template <typename T>
 class MyArray : public MyContainer<T> {
  
  public:
     MyArray(){
-        T* m_array = new T[m_size];
     };
 
     ~MyArray(){};
 
     void push_bach(const T& value) override {
-        T* new_array = new T[m_size+1];
+        std::unique_ptr<int[]> new_array = std::make_unique<int[]>(m_size+1);
         for(unsigned int i = 0; i < m_size; ++i){
             new_array[i] = m_array[i];
         }
         new_array[m_size] = value;
-        
-        m_array = nullptr;
-        delete[] m_array;
-        m_array = new_array;
+        m_array = std::move(new_array);
         incrementSize();
     };
 
@@ -40,7 +37,7 @@ class MyArray : public MyContainer<T> {
             insertFromEnd(value);
             return;
         }
-        T* new_array = new T[m_size+1];
+        std::unique_ptr<int[]> new_array = std::make_unique<int[]>(m_size+1);
         for(unsigned int i = 0; i < m_size; ++i){
             if(i < position-1){
                 new_array[i] = m_array[i];
@@ -54,8 +51,7 @@ class MyArray : public MyContainer<T> {
         }
         
         m_array = nullptr;
-        delete[] m_array;
-        m_array = new_array;
+        m_array = std::move(new_array);
         incrementSize();
 
         
@@ -67,15 +63,12 @@ class MyArray : public MyContainer<T> {
     };
 
     void insertFromBegin(const T& value) override {
-        T* new_array = new T[m_size+1];
+        std::unique_ptr<int[]> new_array = std::make_unique<int[]>(m_size+1);
         new_array[0] = value;
         for(unsigned int i = 0; i < m_size; ++i){
             new_array[i+1] = m_array[i];
         }
-        
-        m_array = nullptr;
-        delete[] m_array;
-        m_array = new_array;
+        m_array = std::move(new_array);
         incrementSize();
 
     };
@@ -93,8 +86,7 @@ class MyArray : public MyContainer<T> {
             eraseFromEnd();
             return;
         }
-        //удаление
-        T* new_array = new T[m_size-1];
+        std::unique_ptr<int[]> new_array = std::make_unique<int[]>(m_size-1);
         for(unsigned int i = 0; i < m_size; ++i){
             if(i < position - 1){
                 new_array[i] = m_array[i];
@@ -106,10 +98,7 @@ class MyArray : public MyContainer<T> {
                 new_array[i-1] = m_array[i];
             }
         }
-        
-        m_array = nullptr;
-        delete[] m_array;
-        m_array = new_array;
+        m_array = std::move(new_array);
         decrementSize();
 
     };
@@ -119,14 +108,11 @@ class MyArray : public MyContainer<T> {
             std::cout << "Array is empty\n";
             return;
         }
-        T* new_array = new T[m_size-1];
+        std::unique_ptr<int[]> new_array = std::make_unique<int[]>(m_size-1);
         for(unsigned int i = 0; i < m_size-1; ++i){
             new_array[i] = m_array[i];
         }
-        
-        m_array = nullptr;
-        delete[] m_array;
-        m_array = new_array;
+        m_array = std::move(new_array);
         decrementSize();
     };
 
@@ -135,14 +121,11 @@ class MyArray : public MyContainer<T> {
             std::cout << "Array is empty\n";
             return;
         }
-        T* new_array = new T[m_size-1];
+        std::unique_ptr<int[]> new_array = std::make_unique<int[]>(m_size-1);
         for(unsigned int i = 1; i < m_size; ++i){
             new_array[i-1] = m_array[i];
         }
-        m_array = nullptr;
-        delete[] m_array;
-        m_array = new_array;
-        // workAfterOperation(new_array, m_array);
+        m_array = std::move(new_array);
         decrementSize();
     };
 
@@ -171,12 +154,6 @@ class MyArray : public MyContainer<T> {
     };
 private:
 
-    void workAfterOperation(T* arrayNew, T* arrayOld){
-        delete[] arrayOld;
-        arrayOld = nullptr;
-        arrayOld = arrayNew;
-    };
-
     void incrementSize(){
         ++m_size;
     }
@@ -186,7 +163,7 @@ private:
     }
 
     int m_size = 0;
-    T* m_array;
+    std::unique_ptr<int[]> m_array = std::make_unique<int[]>(m_size);
 
 };
 
