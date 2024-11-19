@@ -3,6 +3,7 @@
 
 #include "MyContainer.hpp"
 #include <iostream>
+#include <memory>
 
 template<typename T>
 class MyList : public MyContainer<T> {
@@ -18,12 +19,13 @@ public:
         };
 
         void push_bach(const T& value) override {
-            struct MyNode* newNode = new struct MyNode(value);
+            std::shared_ptr<struct MyNode> newNode = std::make_shared<struct MyNode>(value);
+            newNode->m_next = nullptr;
             if(!m_head){ //проверка на пустой список
                 m_head = newNode;
             }
             else{
-                struct MyNode* new_Node = m_head;
+                std::shared_ptr<struct MyNode> new_Node = m_head;
                 while (new_Node->m_next) //когда список не пустой перемещаемся в конец
                 {
                     new_Node = new_Node->m_next;
@@ -47,13 +49,11 @@ public:
                 insertFromEnd(value);
                 return;
             }
-            struct MyNode* new_Node = new struct MyNode(value);
-
-            struct MyNode* tmp_Node = m_head;
+            std::shared_ptr<struct MyNode> new_Node = std::make_shared<struct MyNode>(value);
+            std::shared_ptr<struct MyNode> tmp_Node = m_head;
             for (unsigned int i = 1; i < position-1; ++i){
                 tmp_Node = tmp_Node->m_next;
             }
-            //Not finished
             new_Node->m_next = tmp_Node->m_next;
             tmp_Node->m_next = new_Node;
             incrementSize();
@@ -64,7 +64,7 @@ public:
 
         };
         void insertFromBegin(const T& value) override{
-            struct MyNode* new_Node = new struct MyNode(value);
+            std::shared_ptr<struct MyNode> new_Node = std::make_shared<struct MyNode>(value);
             new_Node->m_next = m_head;
             m_head = new_Node;
             incrementSize();
@@ -83,13 +83,12 @@ public:
                 eraseFromEnd();
                 return;
             }
-            struct MyNode* tmp_Node = m_head;
+            std::shared_ptr<struct MyNode> tmp_Node = m_head;
             for (unsigned int i = 1; i < position-1; ++i){
                 tmp_Node = tmp_Node->m_next;
             }
-            struct MyNode* nodeDelete = tmp_Node->m_next;
+            std::shared_ptr<struct MyNode> nodeDelete = tmp_Node->m_next;
             tmp_Node->m_next = tmp_Node->m_next->m_next;
-            delete nodeDelete;
             decrementSize();
         };
 
@@ -98,17 +97,15 @@ public:
                 return;
             } 
             if(!m_head->m_next){
-                delete m_head;
                 m_head = nullptr;
                 decrementSize();
                 return;
             }
-            struct MyNode* del_Node = m_head;
+            std::shared_ptr<struct MyNode> del_Node = m_head;
             while (del_Node->m_next->m_next)
             {
                 del_Node = del_Node->m_next;
             }
-            delete del_Node->m_next;
             del_Node->m_next = nullptr;
             decrementSize();
             
@@ -119,9 +116,8 @@ public:
             if(checkTheEmptyList()){
                 return;
             } 
-            MyNode* del_Node = m_head;
+            std::shared_ptr<struct MyNode> del_Node = m_head;
             m_head = m_head->m_next;
-            delete del_Node;
             decrementSize();
             
         };
@@ -135,7 +131,7 @@ public:
                 std::cout << "List is empty\n";
             }
             else{
-                struct MyNode* temp = m_head;
+                std::shared_ptr<struct MyNode> temp = m_head;
                 while (temp)
                 {
                     std::cout << temp->m_value << ' ';
@@ -146,7 +142,7 @@ public:
         };
 
          T operator[](const T& index) const override {
-            struct MyNode* tmp_Node = m_head;
+            std::shared_ptr<struct MyNode> tmp_Node = m_head;
             for (unsigned int i = 1; i < index; ++i){
                 tmp_Node = tmp_Node->m_next;
             }
@@ -160,8 +156,9 @@ private:
                 m_value = value;
                 m_next = nullptr;
             }
+            MyNode(){}
             T m_value;
-            MyNode* m_next;
+            std::shared_ptr<struct MyNode> m_next = nullptr;
         };
 
         bool checkTheEmptyList(){
@@ -181,7 +178,8 @@ private:
         void decrementSize(){
             --m_size;
         };
-        struct MyNode* m_head = nullptr;
+        
+        std::shared_ptr<struct MyNode> m_head = nullptr;
         unsigned int m_size = 0;
 };
 
