@@ -20,6 +20,7 @@ class MyArray : public MyContainer<T> {
             new_array[i] = m_array[i];
         }
         new_array[m_size] = value;
+        
         m_array = nullptr;
         delete[] m_array;
         m_array = new_array;
@@ -51,6 +52,7 @@ class MyArray : public MyContainer<T> {
                 new_array[i+1] = m_array[i];
             }
         }
+        
         m_array = nullptr;
         delete[] m_array;
         m_array = new_array;
@@ -70,6 +72,7 @@ class MyArray : public MyContainer<T> {
         for(unsigned int i = 0; i < m_size; ++i){
             new_array[i+1] = m_array[i];
         }
+        
         m_array = nullptr;
         delete[] m_array;
         m_array = new_array;
@@ -103,6 +106,7 @@ class MyArray : public MyContainer<T> {
                 new_array[i-1] = m_array[i];
             }
         }
+        
         m_array = nullptr;
         delete[] m_array;
         m_array = new_array;
@@ -119,6 +123,7 @@ class MyArray : public MyContainer<T> {
         for(unsigned int i = 0; i < m_size-1; ++i){
             new_array[i] = m_array[i];
         }
+        
         m_array = nullptr;
         delete[] m_array;
         m_array = new_array;
@@ -137,6 +142,7 @@ class MyArray : public MyContainer<T> {
         m_array = nullptr;
         delete[] m_array;
         m_array = new_array;
+        // workAfterOperation(new_array, m_array);
         decrementSize();
     };
 
@@ -164,6 +170,12 @@ class MyArray : public MyContainer<T> {
         return m_array[index-1];
     };
 private:
+
+    void workAfterOperation(T* arrayNew, T* arrayOld){
+        delete[] arrayOld;
+        arrayOld = nullptr;
+        arrayOld = arrayNew;
+    };
 
     void incrementSize(){
         ++m_size;
