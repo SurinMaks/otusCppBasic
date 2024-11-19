@@ -27,6 +27,35 @@ class MyArray : public MyContainer<T> {
     };
 
     void insertFromPosition(const T& value, const unsigned int position) override {
+        if(position < 1 || position > m_size){
+            std::cout << "Index out of range\n";
+            return;
+        }
+        if(position == 1){
+            insertFromBegin(value);
+            return;
+        }
+        if(position == m_size){
+            insertFromEnd(value);
+            return;
+        }
+        T* new_array = new T[m_size+1];
+        for(unsigned int i = 0; i < m_size; ++i){
+            if(i < position-1){
+                new_array[i] = m_array[i];
+            }
+            if(i == position-1){
+                new_array[i] = value;
+            }
+            if(i > position-2){
+                new_array[i+1] = m_array[i];
+            }
+        }
+        m_array = nullptr;
+        delete[] m_array;
+        m_array = new_array;
+        incrementSize();
+
         
     };
 
@@ -49,6 +78,35 @@ class MyArray : public MyContainer<T> {
     };
 
     void eraseFromPosition(const unsigned int position) override {
+        if(position < 1 || position > m_size){
+            std::cout << "Index out of range\n";
+            return;
+        }
+        if(position == 1){
+            eraseFromBegin();
+            return;
+        }
+        if(position == m_size){
+            eraseFromEnd();
+            return;
+        }
+        //удаление
+        T* new_array = new T[m_size-1];
+        for(unsigned int i = 0; i < m_size; ++i){
+            if(i < position - 1){
+                new_array[i] = m_array[i];
+            }
+            if(i == position - 1){
+                ++i;
+            }
+            if(i > position - 2){
+                new_array[i-1] = m_array[i];
+            }
+        }
+        m_array = nullptr;
+        delete[] m_array;
+        m_array = new_array;
+        decrementSize();
 
     };
 
@@ -103,7 +161,7 @@ class MyArray : public MyContainer<T> {
             std::cout << "Index out of range\n";
             return{};
         }
-        return m_array[index];
+        return m_array[index-1];
     };
 private:
 

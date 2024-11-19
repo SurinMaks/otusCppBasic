@@ -46,7 +46,16 @@ int main(int argc, char const *argv[])
     myArray.push_bach(7);
     myArray.push_bach(8);
     myArray.push_bach(9);
-    std::cout << "Value=" << myArray[1] << '\n';
+    std::cout << "Size=" << myArray.size() << '\n';
+    myArray.printList();
+    std::cout << "Value=" << myArray[5] << '\n';
+    myArray.insertFromPosition(10,9);
+    myArray.printList();
+    myArray.eraseFromPosition(9);
+    myArray.printList();
+    myArray.eraseFromPosition(5);
+    myArray.printList();
+    myArray.insertFromPosition(10,4);
     // myArray.insertFromEnd(10);
     // myArray.insertFromEnd(11);
     // myArray.printList();
