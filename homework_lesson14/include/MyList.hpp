@@ -11,14 +11,14 @@ public:
         MyList() = delete;
 
         MyList(const T& value){
-            push_bach(value);
+            push_back(value);
         };
 
         ~MyList() {
 
         };
 
-        void push_bach(const T& value) override {
+        void push_back(const T& value) override {
             std::shared_ptr<struct MyNode> newNode = std::make_shared<struct MyNode>(value);
             newNode->m_next = nullptr;
             if(!m_head){ //проверка на пустой список
@@ -60,7 +60,7 @@ public:
         };
 
         void insertFromEnd(const T& value) override{
-            push_bach(value);
+            push_back(value);
 
         };
         void insertFromBegin(const T& value) override{

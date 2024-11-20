@@ -8,15 +8,15 @@ int main(int argc, char const *argv[])
 {
     std::cout << "Example List\n";
     MyList myList0{0};
-    myList0.push_bach(1);
-    myList0.push_bach(2);
-    myList0.push_bach(3);
-    myList0.push_bach(4);
-    myList0.push_bach(5);
-    myList0.push_bach(6);
-    myList0.push_bach(7);
-    myList0.push_bach(8);
-    myList0.push_bach(9);
+    myList0.push_back(1);
+    myList0.push_back(2);
+    myList0.push_back(3);
+    myList0.push_back(4);
+    myList0.push_back(5);
+    myList0.push_back(6);
+    myList0.push_back(7);
+    myList0.push_back(8);
+    myList0.push_back(9);
     myList0.printList();
     std::cout << "Size=" << myList0.size() << '\n';
     
@@ -36,16 +36,16 @@ int main(int argc, char const *argv[])
 
     std::cout << "\nExample Array\n";
     MyArray<int> myArray;
-    myArray.push_bach(0);
-    myArray.push_bach(1);
-    myArray.push_bach(2);
-    myArray.push_bach(3);
-    myArray.push_bach(4);
-    myArray.push_bach(5);
-    myArray.push_bach(6);
-    myArray.push_bach(7);
-    myArray.push_bach(8);
-    myArray.push_bach(9);
+    myArray.push_back(0);
+    myArray.push_back(1);
+    myArray.push_back(2);
+    myArray.push_back(3);
+    myArray.push_back(4);
+    myArray.push_back(5);
+    myArray.push_back(6);
+    myArray.push_back(7);
+    myArray.push_back(8);
+    myArray.push_back(9);
     myArray.printList();
     std::cout << "Size=" << myArray.size() << '\n';
 

@@ -14,7 +14,7 @@ class MyArray : public MyContainer<T> {
 
     ~MyArray(){};
 
-    void push_bach(const T& value) override {
+    void push_back(const T& value) override {
         std::unique_ptr<int[]> new_array = std::make_unique<int[]>(m_size+1);
         for(unsigned int i = 0; i < m_size; ++i){
             new_array[i] = m_array[i];
@@ -58,7 +58,7 @@ class MyArray : public MyContainer<T> {
     };
 
     void insertFromEnd(const T& value) override {
-        push_bach(value);
+        push_back(value);
 
     };
 

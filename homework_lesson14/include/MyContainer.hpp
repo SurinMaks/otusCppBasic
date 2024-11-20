@@ -8,7 +8,7 @@ template<typename T>
 class MyContainer {
     public:
     virtual ~MyContainer(){};
-    virtual void push_bach(const T& value) = 0;
+    virtual void push_back(const T& value) = 0;
     virtual void insertFromPosition(const T& value, const unsigned int position) = 0;
     virtual void insertFromEnd(const T& value) = 0;
     virtual void insertFromBegin(const T& value) = 0;
