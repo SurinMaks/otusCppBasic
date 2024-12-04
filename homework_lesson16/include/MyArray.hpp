@@ -144,6 +144,19 @@ class MyArray : public MyContainer<T> {
         std::cout << '\n';
     };  
 
+    std::string getList() const override{
+        std::string resStr="";
+        if(0 == m_size){
+            std::cout << "Array is empty\n";
+        }
+        for (unsigned int i = 0; i < m_size; ++i){
+            // std::cout << m_array[i] << ' ';
+            resStr = resStr + std::to_string(m_array[i]) + ' ';
+        }
+        // std::cout << '\n';
+        return std::move(resStr);
+    };
+
     T operator[](const T& index) const override{
 
         if(index > m_size || m_size < 1){

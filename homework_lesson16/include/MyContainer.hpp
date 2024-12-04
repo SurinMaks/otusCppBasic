@@ -1,6 +1,8 @@
 #ifndef _MYCONTAINER_H_
 #define _MYCONTAINER_H_
 
+#include <string>
+
 /**
  * Класс для односвязного списка .. Пока сделаем для интов
  */
@@ -17,6 +19,7 @@ class MyContainer {
     virtual void eraseFromBegin() = 0;
     virtual unsigned int size() const = 0;
     virtual void printList() const = 0;
+    virtual std::string getList() const = 0;
     virtual T operator[](const T& index) const = 0;
 };
 

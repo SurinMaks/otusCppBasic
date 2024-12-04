@@ -141,6 +141,24 @@ public:
             }
         };
 
+        std::string getList() const override {
+            std::string resStr="";
+            if(!m_head){
+                std::cout << "List is empty\n";
+            }
+            else{
+                std::shared_ptr<struct MyNode> temp = m_head;
+                while (temp)
+                {
+                    // std::cout << temp->m_value << ' ';
+                    resStr = resStr + std::to_string(temp->m_value) + ' ';
+                    temp = temp->m_next;
+                }
+                // std::cout << '\n';
+            }
+            return std::move(resStr);
+        }
+
          T operator[](const T& index) const override {
             std::shared_ptr<struct MyNode> tmp_Node = m_head;
             for (unsigned int i = 1; i < index; ++i){

@@ -34,6 +34,8 @@ int main(int argc, char const *argv[])
     myList0.insertFromEnd(30);
     myList0.printList();
 
+    std::cout << "getList= " << myList0.getList() << '\n';
+
     std::cout << "\nExample Array\n";
     MyArray<int> myArray;
     myArray.push_back(0);
@@ -62,6 +64,8 @@ int main(int argc, char const *argv[])
 
     myArray.insertFromEnd(30);
     myArray.printList();
+
+    std::cout << "getArray= " << myArray.getList() << '\n';
     
     return 0;
 }
