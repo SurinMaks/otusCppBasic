@@ -15,7 +15,6 @@ set(MAIN_FILE_MYARRAY "MyArray.cpp")
 
 cmake_minimum_required(VERSION 3.30)
 
-# add_executable(${PROJ_NAME} ${LIST_TEST_FILE} ${ARRAY_TEST_FILE})
 add_executable(${PROJ_NAME} ${CONTAINERS_TEST_FILE} ${LIST_TEST_FILE} ${ARRAY_TEST_FILE}) 
 
 target_link_libraries(${PROJ_NAME} PRIVATE gtest gtest_main)
