@@ -1,0 +1,1 @@
+/usr/bin/clang++ -g CMakeFiles/count_primes.dir/count_primes.cpp.o -o count_primes

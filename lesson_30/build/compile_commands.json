@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/home/surinmm/Projects/otusCppBasic/lesson_30/build",
+  "command": "/usr/bin/clang++   -g -g -Wall -Wextra -Werror -pedantic -o CMakeFiles/count_primes.dir/count_primes.cpp.o -c /home/surinmm/Projects/otusCppBasic/lesson_30/count_primes.cpp",
+  "file": "/home/surinmm/Projects/otusCppBasic/lesson_30/count_primes.cpp",
+  "output": "CMakeFiles/count_primes.dir/count_primes.cpp.o"
+},
+{
+  "directory": "/home/surinmm/Projects/otusCppBasic/lesson_30/build",
+  "command": "/usr/bin/clang++   -g -g -Wall -Wextra -Werror -pedantic -o CMakeFiles/savefile_bg.dir/savefile_bg.cpp.o -c /home/surinmm/Projects/otusCppBasic/lesson_30/savefile_bg.cpp",
+  "file": "/home/surinmm/Projects/otusCppBasic/lesson_30/savefile_bg.cpp",
+  "output": "CMakeFiles/savefile_bg.dir/savefile_bg.cpp.o"
+},
+{
+  "directory": "/home/surinmm/Projects/otusCppBasic/lesson_30/build",
+  "command": "/usr/bin/clang++   -g -g -Wall -Wextra -Werror -pedantic -o CMakeFiles/savefile_bg_cref.dir/savefile_bg_cref.cpp.o -c /home/surinmm/Projects/otusCppBasic/lesson_30/savefile_bg_cref.cpp",
+  "file": "/home/surinmm/Projects/otusCppBasic/lesson_30/savefile_bg_cref.cpp",
+  "output": "CMakeFiles/savefile_bg_cref.dir/savefile_bg_cref.cpp.o"
+},
+{
+  "directory": "/home/surinmm/Projects/otusCppBasic/lesson_30/build",
+  "command": "/usr/bin/clang++   -g -g -Wall -Wextra -Werror -pedantic -o CMakeFiles/simple_thread.dir/simple_thread.cpp.o -c /home/surinmm/Projects/otusCppBasic/lesson_30/simple_thread.cpp",
+  "file": "/home/surinmm/Projects/otusCppBasic/lesson_30/simple_thread.cpp",
+  "output": "CMakeFiles/simple_thread.dir/simple_thread.cpp.o"
+},
+{
+  "directory": "/home/surinmm/Projects/otusCppBasic/lesson_30/build",
+  "command": "/usr/bin/clang++   -g -g -Wall -Wextra -Werror -pedantic -o CMakeFiles/switch.dir/switch.cpp.o -c /home/surinmm/Projects/otusCppBasic/lesson_30/switch.cpp",
+  "file": "/home/surinmm/Projects/otusCppBasic/lesson_30/switch.cpp",
+  "output": "CMakeFiles/switch.dir/switch.cpp.o"
+},
+{
+  "directory": "/home/surinmm/Projects/otusCppBasic/lesson_30/build",
+  "command": "/usr/bin/clang++   -g -g -Wall -Wextra -Werror -pedantic -o CMakeFiles/thread_guard.dir/thread_guard.cpp.o -c /home/surinmm/Projects/otusCppBasic/lesson_30/thread_guard.cpp",
+  "file": "/home/surinmm/Projects/otusCppBasic/lesson_30/thread_guard.cpp",
+  "output": "CMakeFiles/thread_guard.dir/thread_guard.cpp.o"
+},
+{
+  "directory": "/home/surinmm/Projects/otusCppBasic/lesson_30/build",
+  "command": "/usr/bin/clang++   -g -g -Wall -Wextra -Werror -pedantic -o CMakeFiles/thread_header_review.dir/thread_header_review.cpp.o -c /home/surinmm/Projects/otusCppBasic/lesson_30/thread_header_review.cpp",
+  "file": "/home/surinmm/Projects/otusCppBasic/lesson_30/thread_header_review.cpp",
+  "output": "CMakeFiles/thread_header_review.dir/thread_header_review.cpp.o"
+}
+]

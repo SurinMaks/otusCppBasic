@@ -1,0 +1,1 @@
+/usr/bin/clang++ -g CMakeFiles/simple_thread.dir/simple_thread.cpp.o -o simple_thread

@@ -1,0 +1,114 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "otus-cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "count_primes::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-count_primes-Debug-a0921e6dcdd06e943ff3.json",
+					"name" : "count_primes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "savefile_bg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-savefile_bg-Debug-2f6cfef4055fd9f042c7.json",
+					"name" : "savefile_bg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "savefile_bg_cref::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-savefile_bg_cref-Debug-4820ee9e85f40e531812.json",
+					"name" : "savefile_bg_cref",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "simple_thread::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-simple_thread-Debug-7958272467ec2ade788f.json",
+					"name" : "simple_thread",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "switch::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-switch-Debug-801fda3c54a924fdbfcf.json",
+					"name" : "switch",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "thread_guard::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-thread_guard-Debug-bf4450060732dfa6b5d0.json",
+					"name" : "thread_guard",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "thread_header_review::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-thread_header_review-Debug-2b8b266ad1cb714868c3.json",
+					"name" : "thread_header_review",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/surinmm/Projects/otusCppBasic/lesson_30/build",
+		"source" : "/home/surinmm/Projects/otusCppBasic/lesson_30"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

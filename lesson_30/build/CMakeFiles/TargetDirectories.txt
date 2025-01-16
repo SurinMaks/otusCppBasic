@@ -1,0 +1,9 @@
+/home/surinmm/Projects/otusCppBasic/lesson_30/build/CMakeFiles/count_primes.dir
+/home/surinmm/Projects/otusCppBasic/lesson_30/build/CMakeFiles/savefile_bg.dir
+/home/surinmm/Projects/otusCppBasic/lesson_30/build/CMakeFiles/savefile_bg_cref.dir
+/home/surinmm/Projects/otusCppBasic/lesson_30/build/CMakeFiles/simple_thread.dir
+/home/surinmm/Projects/otusCppBasic/lesson_30/build/CMakeFiles/switch.dir
+/home/surinmm/Projects/otusCppBasic/lesson_30/build/CMakeFiles/thread_guard.dir
+/home/surinmm/Projects/otusCppBasic/lesson_30/build/CMakeFiles/thread_header_review.dir
+/home/surinmm/Projects/otusCppBasic/lesson_30/build/CMakeFiles/edit_cache.dir
+/home/surinmm/Projects/otusCppBasic/lesson_30/build/CMakeFiles/rebuild_cache.dir
