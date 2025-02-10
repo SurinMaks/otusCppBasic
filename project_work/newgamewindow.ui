@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>newGameWindow</class>
+ <widget class="QDialog" name="newGameWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>228</width>
+    <height>262</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Новая игра</string>
+  </property>
+  <widget class="QLabel" name="lb_userName">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>10</y>
+     <width>39</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>Игрок</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="le_userName">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>30</y>
+     <width>113</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_fieldSize">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>80</y>
+     <width>89</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Игровое поле</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="le_horizontSize">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>110</y>
+     <width>51</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="le_vetricalSize">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>110</y>
+     <width>51</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_fieldSize_2">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>110</y>
+     <width>8</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Х</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bt_OK">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>180</y>
+     <width>80</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Старт</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bt_Cancel">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>180</y>
+     <width>80</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Отмена</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
