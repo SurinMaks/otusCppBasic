@@ -22,6 +22,7 @@ class MainWindow : public QMainWindow{
 
     private slots:
         void openNewGameWindow();//Слот открытия окна Новая игра
-        void openAboutWindow();
+        void openAboutWindow();//Слот открытия окна "О программе"
+        void openRuleWindow();//Слот открытия окна "Правила"
 };
 #endif // MAINWINDOW_H

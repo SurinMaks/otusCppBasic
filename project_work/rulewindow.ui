@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ruleWindow</class>
+ <widget class="QDialog" name="ruleWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPlainTextEdit" name="tpe_rule">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>391</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="plainText">
+    <string>Правила игры:
+1. Перед вами поле разбитое на квадраты;
+2. Каждый квадрат это место куда можно выполнить ход;
+3. Игрок можно выполнить первый ход в любом месте поля;
+4. После необходимо выполнять ходы буквой Г, как фигура коня в шамхатах;
+5. Победа защитывается если игрок посетил все квадраты поля;
+6. Если остались пустые (не посещенные) квадраты, а ходов больше нет, игрок проиграл.</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

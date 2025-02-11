@@ -13,11 +13,10 @@ class newGameWindow : public QDialog{
     public:
         explicit newGameWindow(QWidget *parent = nullptr);
         ~newGameWindow();
-        void setBackgroundColor();
-
 
     private:
         Ui::newGameWindow *ui;
+        void setBackgroundColor();
 
     private slots:
         void bt_pressOK();//Слот для кнопки ОК

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "newgamewindow.h"
+#include "rulewindow.h"
 
 #include <QMenuBar>
 #include <QMenu>
@@ -45,15 +46,20 @@ void MainWindow::createMenu(){
     connect(exitGame, &QAction::triggered, this, &MainWindow::close);
     connect(newGame, &QAction::triggered, this, &MainWindow::openNewGameWindow);
     connect(about, &QAction::triggered,this, &MainWindow::openAboutWindow);
+    connect(rules, &QAction::triggered, this, &MainWindow::openRuleWindow);
 }
 
 void MainWindow::openNewGameWindow(){
-    newGameWindow *newGame = new newGameWindow(this);
-    // newGame->setBackgroundColor();
+    newGameWindow *newGame = new class newGameWindow(this);
     newGame->exec();
 }
 
 void MainWindow::openAboutWindow(){
     QMessageBox::about(this, "О программе", "Данная игра разработанна в рамках выполнения проектой работы на курсе Otus. C++.Basic");
+}
+
+void MainWindow::openRuleWindow(){
+    ruleWindow *ruleWindow = new class ruleWindow(this);
+    ruleWindow->exec();
 }
 
