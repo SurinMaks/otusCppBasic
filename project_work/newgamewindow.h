@@ -2,6 +2,7 @@
 #define NEWGAMEWINDOW_H
 
 #include <QDialog>
+#include <QIntValidator>
 
 namespace Ui {
 class newGameWindow;

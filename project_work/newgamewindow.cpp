@@ -3,6 +3,11 @@
 
 newGameWindow::newGameWindow(QWidget *parent) : QDialog(parent) , ui(new Ui::newGameWindow){
     ui->setupUi(this);
+
+    QIntValidator *intValidator = new QIntValidator(this);
+    ui->le_horizontSize->setValidator(intValidator);
+    ui->le_vetricalSize->setValidator(intValidator);
+
     connect(ui->bt_OK, &QPushButton::clicked, this, &newGameWindow::bt_pressOK);
     connect(ui->bt_Cancel, &QPushButton::clicked, this, &newGameWindow::close);
 }
