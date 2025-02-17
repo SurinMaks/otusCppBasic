@@ -17,8 +17,15 @@ class MainWindow : public QMainWindow{
         ~MainWindow();
         void createMenu();
 
+
+    public slots:
+        void print_field_size();//временный метод для проверка результатов
+        void receive_data_from_newGameWindow(int length, int width);
+
     private:
         Ui::MainWindow *ui;
+        uint m_length=0;
+        uint m_width=0;
 
     private slots:
         void openNewGameWindow();//Слот открытия окна Новая игра

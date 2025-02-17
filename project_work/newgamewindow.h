@@ -16,10 +16,13 @@ class newGameWindow : public QDialog{
 
     private:
         Ui::newGameWindow *ui;
-        void setBackgroundColor();
+        // void setBackgroundColor();
 
     private slots:
         void bt_pressOK();//Слот для кнопки ОК
+
+    signals:
+        void send_playing_field_size(int length, int width);//отправка размера игрового поля
 
 };
 

@@ -10,6 +10,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
+    connect(ui->pushButton,&QPushButton::clicked, this, &MainWindow::print_field_size);//временное подключени для проверок
 }
 
 MainWindow::~MainWindow(){
@@ -51,6 +52,7 @@ void MainWindow::createMenu(){
 
 void MainWindow::openNewGameWindow(){
     newGameWindow *newGame = new class newGameWindow(this);
+    connect(newGame, &newGameWindow::send_playing_field_size, this, &MainWindow::receive_data_from_newGameWindow);// Подключаем сигнал к слоту
     newGame->exec();
 }
 
@@ -61,5 +63,16 @@ void MainWindow::openAboutWindow(){
 void MainWindow::openRuleWindow(){
     ruleWindow *ruleWindow = new class ruleWindow(this);
     ruleWindow->exec();
+}
+
+//временный метод для проверка результатов
+void MainWindow::print_field_size(){
+    qDebug()<<"11=" << m_length;
+    qDebug()<<"22=" << m_width;
+}
+
+void MainWindow::receive_data_from_newGameWindow(int length, int width){
+    m_length = length;
+    m_width = width;
 }
 
