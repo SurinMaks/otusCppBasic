@@ -18,8 +18,9 @@ class newGameWindow : public QDialog{
     private:
         Ui::newGameWindow *ui;
         // void setBackgroundColor();
-        uint min_value_field_size {0};
+        uint min_value_field_size {3};
         uint max_value_filed_size {99};
+        bool check_field_size();
 
     private slots:
         void bt_pressOK();//Слот для кнопки ОК

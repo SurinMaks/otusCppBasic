@@ -1,5 +1,6 @@
 #include "newgamewindow.h"
 #include "ui_newgamewindow.h"
+#include <QMessageBox>
 
 newGameWindow::newGameWindow(QWidget *parent) : QDialog(parent) , ui(new Ui::newGameWindow){
     ui->setupUi(this);
@@ -25,6 +26,23 @@ newGameWindow::~newGameWindow(){
 void newGameWindow::bt_pressOK(){
     // qDebug() << "Горизонтельный размер=" << ui->le_horizontSize->text();
     // qDebug() << "Вертикальный размер=" << ui->le_vetricalSize->text();
-    emit send_playing_field_size(ui->le_horizontSize->text().toUInt(), ui->le_vetricalSize->text().toUInt(), ui->le_userName->text());
-    this->close();
+    if(check_field_size()){
+        emit send_playing_field_size(ui->le_horizontSize->text().toUInt(), ui->le_vetricalSize->text().toUInt(), ui->le_userName->text());
+        this->close();
+    }
+    else{
+        QMessageBox msq;
+        msq.warning(this, "Предупрежение", "Размеры игрового поля не могут быть меньше " + QString::number(min_value_field_size));
+    }
+
+
+}
+
+bool newGameWindow::check_field_size(){
+    if( (ui->le_horizontSize->text().toUInt() >= min_value_field_size) && (ui->le_vetricalSize->text().toUInt() >= min_value_field_size) ){
+        return true;
+    }
+    else{
+        return false;
+    }
 }

@@ -77,5 +77,6 @@ void MainWindow::receive_data_from_newGameWindow(uint length, uint width, QStrin
     m_length = length;
     m_width = width;
     m_name = name;
+    start_game = true;
 }
 

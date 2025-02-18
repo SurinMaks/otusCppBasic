@@ -28,6 +28,7 @@ class MainWindow : public QMainWindow{
         uint m_length{0};
         uint m_width{0};
         QString m_name{};
+        bool start_game{false};
 
     private slots:
         void openNewGameWindow();//Слот открытия окна Новая игра
