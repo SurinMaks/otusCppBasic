@@ -4,7 +4,7 @@
 newGameWindow::newGameWindow(QWidget *parent) : QDialog(parent) , ui(new Ui::newGameWindow){
     ui->setupUi(this);
 
-    QIntValidator *intValidator = new QIntValidator(this);
+    QIntValidator *intValidator = new QIntValidator(min_value_field_size, max_value_filed_size, this);
     ui->le_horizontSize->setValidator(intValidator);
     ui->le_vetricalSize->setValidator(intValidator);
 
@@ -25,6 +25,6 @@ newGameWindow::~newGameWindow(){
 void newGameWindow::bt_pressOK(){
     // qDebug() << "Горизонтельный размер=" << ui->le_horizontSize->text();
     // qDebug() << "Вертикальный размер=" << ui->le_vetricalSize->text();
-    emit send_playing_field_size(ui->le_horizontSize->text().toUInt(), ui->le_vetricalSize->text().toUInt());
+    emit send_playing_field_size(ui->le_horizontSize->text().toUInt(), ui->le_vetricalSize->text().toUInt(), ui->le_userName->text());
     this->close();
 }

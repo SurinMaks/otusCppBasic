@@ -8,6 +8,7 @@
 #include <QAction>
 #include <QMessageBox>
 
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
     connect(ui->pushButton,&QPushButton::clicked, this, &MainWindow::print_field_size);//временное подключени для проверок
@@ -69,10 +70,12 @@ void MainWindow::openRuleWindow(){
 void MainWindow::print_field_size(){
     qDebug()<<"11=" << m_length;
     qDebug()<<"22=" << m_width;
+    qDebug()<<"33=" << m_name;
 }
 
-void MainWindow::receive_data_from_newGameWindow(int length, int width){
+void MainWindow::receive_data_from_newGameWindow(uint length, uint width, QString name){
     m_length = length;
     m_width = width;
+    m_name = name;
 }
 

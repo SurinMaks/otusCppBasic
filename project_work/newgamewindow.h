@@ -18,12 +18,14 @@ class newGameWindow : public QDialog{
     private:
         Ui::newGameWindow *ui;
         // void setBackgroundColor();
+        uint min_value_field_size {0};
+        uint max_value_filed_size {99};
 
     private slots:
         void bt_pressOK();//Слот для кнопки ОК
 
     signals:
-        void send_playing_field_size(int length, int width);//отправка размера игрового поля
+        void send_playing_field_size(uint length, uint width, QString name);//отправка размера игрового поля
 
 };
 

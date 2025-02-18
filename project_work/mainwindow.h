@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <string>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,12 +21,13 @@ class MainWindow : public QMainWindow{
 
     public slots:
         void print_field_size();//временный метод для проверка результатов
-        void receive_data_from_newGameWindow(int length, int width);
+        void receive_data_from_newGameWindow(uint length, uint width, QString name);
 
     private:
         Ui::MainWindow *ui;
-        uint m_length=0;
-        uint m_width=0;
+        uint m_length{0};
+        uint m_width{0};
+        QString m_name{};
 
     private slots:
         void openNewGameWindow();//Слот открытия окна Новая игра
