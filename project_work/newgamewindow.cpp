@@ -38,7 +38,7 @@ void newGameWindow::bt_pressOK(){
 
 }
 
-bool newGameWindow::check_field_size(){
+bool newGameWindow::check_field_size() const {
     if( (ui->le_horizontSize->text().toUInt() >= min_value_field_size) && (ui->le_vetricalSize->text().toUInt() >= min_value_field_size) ){
         return true;
     }

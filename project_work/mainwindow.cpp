@@ -67,13 +67,13 @@ void MainWindow::openRuleWindow(){
 }
 
 //временный метод для проверка результатов
-void MainWindow::print_field_size(){
+void MainWindow::print_field_size() const {
     qDebug()<<"11=" << m_length;
     qDebug()<<"22=" << m_width;
     qDebug()<<"33=" << m_name;
 }
 
-void MainWindow::receive_data_from_newGameWindow(uint length, uint width, QString name){
+void MainWindow::receive_data_from_newGameWindow(const uint length, const uint width, const QString name){
     m_length = length;
     m_width = width;
     m_name = name;
