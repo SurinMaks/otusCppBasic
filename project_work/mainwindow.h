@@ -15,23 +15,26 @@ class MainWindow : public QMainWindow{
     public:
         MainWindow(QWidget *parent = nullptr);
         ~MainWindow();
-        void createMenu();
+        void create_menu();
+        void create_game_field();
+        void print_field_size() const;//временный метод для проверка результатов
 
+    signals:
+        void game_is_on(bool newValue); //сигнал что игра началась
 
     public slots:
-        void print_field_size() const;//временный метод для проверка результатов
         void receive_data_from_newGameWindow(const uint length, const uint width, const QString name);
+        void openNewGameWindow();//Слот открытия окна Новая игра
+        void open_about_window();//Слот открытия окна "О программе"
+        void open_rule_window();//Слот открытия окна "Правила"
 
     private:
         Ui::MainWindow *ui;
         uint m_length{0};
         uint m_width{0};
         QString m_name{};
-        bool start_game{false};
+        bool m_start_game{false};
+        void set_flag_game_start();
 
-    private slots:
-        void openNewGameWindow();//Слот открытия окна Новая игра
-        void openAboutWindow();//Слот открытия окна "О программе"
-        void openRuleWindow();//Слот открытия окна "Правила"
 };
 #endif // MAINWINDOW_H

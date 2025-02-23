@@ -7,6 +7,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QMessageBox>
+#include <QGridLayout>
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
@@ -18,7 +19,7 @@ MainWindow::~MainWindow(){
     delete ui;
 }
 
-void MainWindow::createMenu(){
+void MainWindow::create_menu(){
     // Создаем строку меню
     QMenuBar *menuBar = new QMenuBar(this);
     setMenuBar(menuBar);
@@ -47,8 +48,8 @@ void MainWindow::createMenu(){
     // Подключаем действия
     connect(exitGame, &QAction::triggered, this, &MainWindow::close);
     connect(newGame, &QAction::triggered, this, &MainWindow::openNewGameWindow);
-    connect(about, &QAction::triggered,this, &MainWindow::openAboutWindow);
-    connect(rules, &QAction::triggered, this, &MainWindow::openRuleWindow);
+    connect(about, &QAction::triggered,this, &MainWindow::open_about_window);
+    connect(rules, &QAction::triggered, this, &MainWindow::open_rule_window);
 }
 
 void MainWindow::openNewGameWindow(){
@@ -57,11 +58,11 @@ void MainWindow::openNewGameWindow(){
     newGame->exec();
 }
 
-void MainWindow::openAboutWindow(){
+void MainWindow::open_about_window(){
     QMessageBox::about(this, "О программе", "Данная игра разработанна в рамках выполнения проектой работы на курсе Otus. C++.Basic");
 }
 
-void MainWindow::openRuleWindow(){
+void MainWindow::open_rule_window(){
     ruleWindow *ruleWindow = new class ruleWindow(this);
     ruleWindow->exec();
 }
@@ -77,6 +78,16 @@ void MainWindow::receive_data_from_newGameWindow(const uint length, const uint w
     m_length = length;
     m_width = width;
     m_name = name;
-    start_game = true;
+    set_flag_game_start();
+}
+
+void MainWindow::create_game_field(){
+    // QGridLayout *layout = new QGridLayout(this);
+    qDebug()<<"999=";
+}
+
+void MainWindow::set_flag_game_start(){
+    m_start_game = true;
+    emit game_is_on(m_start_game);
 }
 
