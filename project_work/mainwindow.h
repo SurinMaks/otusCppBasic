@@ -39,6 +39,9 @@ class MainWindow : public QMainWindow{
         bool m_start_game{false};
         void erase_layout(QGridLayout *layout);
         void set_flag_game_start();
+        bool check_moves(int row, int col);
+        const int m_dx[8] = {2, 1, -1, -2, -2, -1, 1, 2};
+        const int m_dy[8] = {1, 2, 2, 1, -1, -2, -2, -1};
 
 };
 #endif // MAINWINDOW_H

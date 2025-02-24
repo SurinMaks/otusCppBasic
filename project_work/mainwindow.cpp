@@ -81,19 +81,20 @@ void MainWindow::receive_data_from_newGameWindow(const uint length, const uint w
 }
 
 void MainWindow::create_game_field(){
-    if (layout != nullptr){
+    if (layout){
         erase_layout(layout);
     }
     layout = new QGridLayout(centralWidget());
     for(int row = 0; row < m_width; ++ row){
         for(int len = 0; len < m_length; ++len){
-            QPushButton *button = new QPushButton(QString("Button %1, %2").arg(row).arg(len), this);
+            QPushButton *button = new QPushButton(QString("%1 %2").arg(row).arg(len), this);
             button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);//политика растяжения кнопки
             connect(button, &QPushButton::clicked, this, &MainWindow::onButtonClicked);
             layout->setRowStretch(row,1);//растягиваем столбцы
             layout->setColumnStretch(len,1);//растягиваем строки
-            layout->addWidget(button,row,len);
             layout->setSpacing(0);//убираем промежутки между ячейками
+            layout->addWidget(button,row,len);
+
         }
     }
 }
@@ -120,6 +121,14 @@ void MainWindow::onButtonClicked(){
     QPushButton *button = qobject_cast<QPushButton*>(sender());
     if (button) {
         qDebug() << "Button clicked:" << button->text();
+        button->setCheckable(true); // Включаем режим "checkable"
+        button->setChecked(true); // Оставляем кнопку в нажатом состоянии
+        button->setEnabled(false);
     }
+}
+
+bool MainWindow::check_moves(int row, int col){
+
+    return true;
 }
 
