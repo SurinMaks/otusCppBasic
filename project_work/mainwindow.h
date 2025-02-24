@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QGridLayout>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,20 +21,23 @@ class MainWindow : public QMainWindow{
         void print_field_size() const;//временный метод для проверка результатов
 
     signals:
-        void game_is_on(bool newValue); //сигнал что игра началась
+        void game_is_on(); //сигнал что игра началась
 
     public slots:
         void receive_data_from_newGameWindow(const uint length, const uint width, const QString name);
         void openNewGameWindow();//Слот открытия окна Новая игра
         void open_about_window();//Слот открытия окна "О программе"
         void open_rule_window();//Слот открытия окна "Правила"
+        void onButtonClicked();//Слот обработки нажатия на кнопки игрового поля
 
     private:
         Ui::MainWindow *ui;
+        QGridLayout *layout = nullptr;
         uint m_length{0};
         uint m_width{0};
         QString m_name{};
         bool m_start_game{false};
+        void erase_layout(QGridLayout *layout);
         void set_flag_game_start();
 
 };
