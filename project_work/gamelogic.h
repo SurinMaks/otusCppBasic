@@ -7,7 +7,7 @@ class GameLogic
         GameLogic();
         bool CheckMoves(int row, int col);
         void GetCurrentPosition(int row, int col);
-        void GetGieldSize(int row, int col);
+        void GetFieldSize(int row, int col);
 
     private:
         const int kDx[8] = {2, 1, -1, -2, -2, -1, 1, 2};
