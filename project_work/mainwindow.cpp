@@ -11,14 +11,14 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
-    connect(ui->pushButton,&QPushButton::clicked, this, &MainWindow::print_field_size);//временное подключени для проверок
+    connect(ui->pushButton,&QPushButton::clicked, this, &MainWindow::PrintFieldSize);//временное подключени для проверок
 }
 
 MainWindow::~MainWindow(){
     delete ui;
 }
 
-void MainWindow::create_menu(){
+void MainWindow::CreateMenu(){
     // Создаем строку меню
     QMenuBar *menuBar = new QMenuBar(this);
     setMenuBar(menuBar);
@@ -46,66 +46,66 @@ void MainWindow::create_menu(){
 
     // Подключаем действия
     connect(exitGame, &QAction::triggered, this, &MainWindow::close);
-    connect(newGame, &QAction::triggered, this, &MainWindow::openNewGameWindow);
-    connect(about, &QAction::triggered,this, &MainWindow::open_about_window);
-    connect(rules, &QAction::triggered, this, &MainWindow::open_rule_window);
+    connect(newGame, &QAction::triggered, this, &MainWindow::OpenNewGameWindow);
+    connect(about, &QAction::triggered,this, &MainWindow::OpenAboutWindow);
+    connect(rules, &QAction::triggered, this, &MainWindow::OpenRuleWindow);
 }
 
-void MainWindow::openNewGameWindow(){
+void MainWindow::OpenNewGameWindow(){
     newGameWindow *newGame = new class newGameWindow(this);
-    connect(newGame, &newGameWindow::send_playing_field_size, this, &MainWindow::receive_data_from_newGameWindow);// Подключаем сигнал к слоту
+    connect(newGame, &newGameWindow::send_playing_field_size, this, &MainWindow::ReceiveDataFromNewGameWindow);// Подключаем сигнал к слоту
     newGame->exec();
 }
 
-void MainWindow::open_about_window(){
+void MainWindow::OpenAboutWindow(){
     QMessageBox::about(this, "О программе", "Данная игра разработанна в рамках выполнения проектой работы на курсе Otus. C++.Basic");
 }
 
-void MainWindow::open_rule_window(){
+void MainWindow::OpenRuleWindow(){
     ruleWindow *ruleWindow = new class ruleWindow(this);
     ruleWindow->exec();
 }
 
 //временный метод для проверка результатов
-void MainWindow::print_field_size() const {
-    qDebug()<<"11=" << m_length;
-    qDebug()<<"22=" << m_width;
-    qDebug()<<"33=" << m_name;
+void MainWindow::PrintFieldSize() const {
+    qDebug()<<"11=" << length_;
+    qDebug()<<"22=" << width_;
+    qDebug()<<"33=" << name_;
 }
 
-void MainWindow::receive_data_from_newGameWindow(const uint length, const uint width, const QString name){
-    m_length = length;
-    m_width = width;
-    m_name = name;
-    set_flag_game_start();
+void MainWindow::ReceiveDataFromNewGameWindow(const uint length, const uint width, const QString name){
+    length_ = length;
+    width_ = width;
+    name_ = name;
+    SetFlagGameStart();
 }
 
-void MainWindow::create_game_field(){
-    if (layout){
-        erase_layout(layout);
+void MainWindow::CreateGameField(){
+    if (layout_){
+        EraseLayout(layout_);
     }
-    layout = new QGridLayout(centralWidget());
-    for(int row = 0; row < m_width; ++ row){
-        for(int len = 0; len < m_length; ++len){
+    layout_ = new QGridLayout(centralWidget());
+    for(int row = 0; row < width_; ++ row){
+        for(int len = 0; len < length_; ++len){
             QPushButton *button = new QPushButton(QString("%1 %2").arg(row).arg(len), this);
             button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);//политика растяжения кнопки
-            connect(button, &QPushButton::clicked, this, &MainWindow::onButtonClicked);
-            layout->setRowStretch(row,1);//растягиваем столбцы
-            layout->setColumnStretch(len,1);//растягиваем строки
-            layout->setSpacing(0);//убираем промежутки между ячейками
-            layout->addWidget(button,row,len);
+            connect(button, &QPushButton::clicked, this, &MainWindow::OnButtonClicked);
+            layout_->setRowStretch(row,1);//растягиваем столбцы
+            layout_->setColumnStretch(len,1);//растягиваем строки
+            layout_->setSpacing(0);//убираем промежутки между ячейками
+            layout_->addWidget(button,row,len);
 
         }
     }
 }
 
-void MainWindow::set_flag_game_start(){
-    m_start_game = true;
+void MainWindow::SetFlagGameStart(){
+    startGame_ = true;
     // emit game_is_on(m_start_game);
     emit game_is_on();
 }
 
-void MainWindow::erase_layout(QGridLayout *layout){
+void MainWindow::EraseLayout(QGridLayout *layout){
     QLayoutItem *item;
     while ((item = layout->takeAt(0)) != nullptr) {
         if (item->widget()) {
@@ -117,7 +117,7 @@ void MainWindow::erase_layout(QGridLayout *layout){
     delete layout;
 }
 
-void MainWindow::onButtonClicked(){
+void MainWindow::OnButtonClicked(){
     QPushButton *button = qobject_cast<QPushButton*>(sender());
     if (button) {
         qDebug() << "Button clicked:" << button->text();
@@ -125,10 +125,5 @@ void MainWindow::onButtonClicked(){
         button->setChecked(true); // Оставляем кнопку в нажатом состоянии
         button->setEnabled(false);
     }
-}
-
-bool MainWindow::check_moves(int row, int col){
-
-    return true;
 }
 
