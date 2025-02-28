@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QGridLayout>
+#include <QPushButton>
 #include "gamelogic.h"
 
 QT_BEGIN_NAMESPACE
@@ -38,8 +39,11 @@ class MainWindow : public QMainWindow{
         uint width_{0};
         QString name_{};
         GameLogic gameLogic_{};
+        const char* kHiddenX{"hiddenX"};
+        const char* kHiddenY{"hiddenY"};
         bool startGame_{false};
         void EraseLayout(QGridLayout *layout);
-        void SetFlagGameStart();
+        void setFlagGameStart();
+        void setHidePropertyXY(QPushButton *button, uint X, uint Y);
 };
 #endif // MAINWINDOW_H

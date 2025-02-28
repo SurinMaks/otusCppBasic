@@ -28,6 +28,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         newgamewindow.h newgamewindow.cpp newgamewindow.ui
         rulewindow.h rulewindow.cpp rulewindow.ui
         gamelogic.h gamelogic.cpp
+        GameStatus.h
+
 
 
 

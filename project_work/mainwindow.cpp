@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "newgamewindow.h"
 #include "rulewindow.h"
+#include "GameStatus.h"
 
 #include <QMenuBar>
 #include <QMenu>
@@ -77,7 +78,8 @@ void MainWindow::ReceiveDataFromNewGameWindow(const uint length, const uint widt
     length_ = length;
     width_ = width;
     name_ = name;
-    SetFlagGameStart();
+    gameLogic_.setFieldSize(length, width);
+    setFlagGameStart();
 }
 
 void MainWindow::CreateGameField(){
@@ -87,7 +89,9 @@ void MainWindow::CreateGameField(){
     layout_ = new QGridLayout(centralWidget());
     for(int row = 0; row < width_; ++ row){
         for(int len = 0; len < length_; ++len){
-            QPushButton *button = new QPushButton(QString("%1 %2").arg(row).arg(len), this);
+            // QPushButton *button = new QPushButton(QString("%1 %2").arg(row).arg(len), this);
+            QPushButton *button = new QPushButton("", this);
+            setHidePropertyXY(button, row, len);
             button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);//политика растяжения кнопки
             connect(button, &QPushButton::clicked, this, &MainWindow::OnButtonClicked);
             layout_->setRowStretch(row,1);//растягиваем столбцы
@@ -99,7 +103,7 @@ void MainWindow::CreateGameField(){
     }
 }
 
-void MainWindow::SetFlagGameStart(){
+void MainWindow::setFlagGameStart(){
     startGame_ = true;
     // emit game_is_on(m_start_game);
     emit game_is_on();
@@ -119,11 +123,37 @@ void MainWindow::EraseLayout(QGridLayout *layout){
 
 void MainWindow::OnButtonClicked(){
     QPushButton *button = qobject_cast<QPushButton*>(sender());
+    bool turns{false};
+    QMessageBox msq;
+    GameStatus status;
     if (button) {
-        qDebug() << "Button clicked:" << button->text();
-        button->setCheckable(true); // Включаем режим "checkable"
-        button->setChecked(true); // Оставляем кнопку в нажатом состоянии
-        button->setEnabled(false);
+        QVariant hiddenX =button->property(kHiddenX);
+        QVariant hiddenY =button->property(kHiddenY);
+        if(!hiddenX.isValid() || !hiddenY.isValid()){
+            //обдумать эту ветку. Возможно в данном случае нужно будет остановить игру, ибо не сможем обсчитывать ходы
+        }
+        status = gameLogic_.CheckMoves(hiddenX.toUInt(),hiddenY.toUInt());
+        switch (status) {
+        case GameStatus::Continue:
+            button->setCheckable(true); // Включаем режим "checkable"
+            button->setChecked(true); // Оставляем кнопку в нажатом состоянии
+            button->setEnabled(false);
+            break;
+        case GameStatus::Win:
+            msq.warning(this, "Победа", "Поздавляем, вы выйграли!");
+            break;
+        // case GameStatus::Fail:
+        //     msq.critical(this, "Проигрыш", "К сожалению, вы проиграли.");
+        //     break;
+        default:
+            break;
+        }
     }
+    gameLogic_.PrintInformation();
+}
+
+void MainWindow::setHidePropertyXY(QPushButton *button, uint X, uint Y){
+    button->setProperty(kHiddenX, X);
+    button->setProperty(kHiddenY, Y);
 }
 
