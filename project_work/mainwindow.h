@@ -41,8 +41,7 @@ class MainWindow : public QMainWindow{
         GameLogic gameLogic_{};
         Timer timer{};
         const char* kHiddenX{"hiddenX"};
-        const char* kHiddenY{"hiddenY"};
-        // bool startGame_{false};
+		const char* kHiddenY{"hiddenY"};
         void EraseLayout(QGridLayout *layout);
         void setFlagGameStart();
         void setHidePropertyXY(QPushButton *button, uint X, uint Y);

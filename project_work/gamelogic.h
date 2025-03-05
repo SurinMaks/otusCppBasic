@@ -27,8 +27,6 @@ class GameLogic
         void setCurrentPosition(const unsigned int newPositionX, const unsigned int newPositionY);
         void GameIsOn(bool status);
 
-
-
         //отладочные функции
         void PrintCurrentPosition();
         void PrintFiledSize();

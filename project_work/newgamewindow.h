@@ -16,8 +16,7 @@ class newGameWindow : public QDialog{
         ~newGameWindow();
 
     private:
-        Ui::newGameWindow *ui;
-        // void setBackgroundColor();
+		Ui::newGameWindow *ui;
         const uint kMinValueFieldSize {3};
         const uint kMaxValueFiledSize {99};
         bool CheckFieldSize() const;
