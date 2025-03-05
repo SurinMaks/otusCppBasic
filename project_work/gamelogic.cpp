@@ -5,8 +5,8 @@ GameLogic::GameLogic() {}
 
 GameStatus GameLogic::CheckMoves(const unsigned int newPositionX, const unsigned int newPositionY){
     std::vector<std::pair<int, int>> possibleMoves;
-
     if(number_of_turns_ == 0){ //первый ход
+        GameIsOn(true);
         setCurrentPosition(newPositionX, newPositionY);
         setNumberOfTurns();
         return GameStatus::Continue;
@@ -23,6 +23,7 @@ GameStatus GameLogic::CheckMoves(const unsigned int newPositionX, const unsigned
                 setCurrentPosition(newPositionX, newPositionY);
                 setNumberOfTurns();
                 if(number_of_turns_ == max_number_of_turns_){
+                    GameIsOn(false);
                     return GameStatus::Win;
                 }
                 return GameStatus::Continue;
@@ -38,6 +39,12 @@ void GameLogic::setFieldSize(const unsigned int length, const unsigned int widt)
     setMaxNumberOfTurns();
 }
 
+void GameLogic::reset(){
+    position_x_ = 0;
+    position_y_ = 0;
+    number_of_turns_ = 0;
+}
+
 void GameLogic::setCurrentPosition(const unsigned int newPositionX, const unsigned int newPositionY){
     position_x_ = newPositionX;
     position_y_ = newPositionY;
@@ -51,11 +58,15 @@ void GameLogic::setMaxNumberOfTurns(){
     max_number_of_turns_ = length_ * width_;
 }
 
+void GameLogic::GameIsOn(bool status){
+    game_is_on_ = status;
+}
+
 void GameLogic::PrintInformation(){
     PrintCurrentPosition();
-    // PrintFiledSize();
+    PrintFiledSize();
     PrintNumberOfTurns();
-    // PrintMaxNumberOfTurns();
+    PrintMaxNumberOfTurns();
 }
 
 void GameLogic::PrintCurrentPosition(){
@@ -71,5 +82,5 @@ void GameLogic::PrintNumberOfTurns(){
 }
 
 void GameLogic::PrintMaxNumberOfTurns(){
-    qDebug() << "Game Logic. max number of turns: " <<max_number_of_turns_;
+    qDebug() << "Game Logic. max number of turns: " << max_number_of_turns_;
 }

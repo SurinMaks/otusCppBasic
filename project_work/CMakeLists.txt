@@ -29,6 +29,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         rulewindow.h rulewindow.cpp rulewindow.ui
         gamelogic.h gamelogic.cpp
         GameStatus.h
+        timer.h timer.cpp
+        recordtable.h recordtable.cpp
 
 
 

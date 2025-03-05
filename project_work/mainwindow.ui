@@ -13,21 +13,7 @@
   <property name="windowTitle">
    <string>Игра ход конем</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>280</y>
-      <width>80</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Данные</string>
-    </property>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>

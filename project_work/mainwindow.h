@@ -5,6 +5,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include "gamelogic.h"
+#include "timer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,7 +21,6 @@ class MainWindow : public QMainWindow{
         ~MainWindow();
         void CreateMenu();
         void CreateGameField();
-        void PrintFieldSize() const;//временный метод для проверка результатов
 
     signals:
         void game_is_on(); //сигнал что игра началась
@@ -39,11 +39,14 @@ class MainWindow : public QMainWindow{
         uint width_{0};
         QString name_{};
         GameLogic gameLogic_{};
+        Timer timer{};
         const char* kHiddenX{"hiddenX"};
         const char* kHiddenY{"hiddenY"};
-        bool startGame_{false};
+        // bool startGame_{false};
         void EraseLayout(QGridLayout *layout);
         void setFlagGameStart();
         void setHidePropertyXY(QPushButton *button, uint X, uint Y);
+        void clickButton(QPushButton *button);
+        std::string getName() const;
 };
 #endif // MAINWINDOW_H
