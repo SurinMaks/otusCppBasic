@@ -7,16 +7,15 @@ namespace Ui {
 class ruleWindow;
 }
 
-class ruleWindow : public QDialog
-{
-    Q_OBJECT
+class ruleWindow : public QDialog {
+	Q_OBJECT
 
-public:
-    explicit ruleWindow(QWidget *parent = nullptr);
-    ~ruleWindow();
+   public:
+	explicit ruleWindow(QWidget *parent = nullptr);
+	~ruleWindow();
 
-private:
-    Ui::ruleWindow *ui;
+   private:
+	Ui::ruleWindow *ui;
 };
 
-#endif // RULEWINDOW_H
+#endif	// RULEWINDOW_H
