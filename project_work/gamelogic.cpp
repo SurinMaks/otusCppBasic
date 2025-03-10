@@ -1,11 +1,11 @@
 #include "gamelogic.h"
-
+#include <vector>
 #include <QDebug>
 
 GameLogic::GameLogic() {}
 
-GameStatus GameLogic::CheckMoves(const unsigned int newPositionX,
-								 const unsigned int newPositionY) {
+GameStatus GameLogic::CheckMoves(const unsigned int &newPositionX,
+								 const unsigned int &newPositionY) {
 	std::vector<std::pair<int, int>> possibleMoves;
 	if (number_of_turns_ == 0) {  // первый ход
 		GameIsOn(true);
@@ -14,8 +14,8 @@ GameStatus GameLogic::CheckMoves(const unsigned int newPositionX,
 		return GameStatus::Continue;
 	} else {						   // второй и далее ход
 		for (int i = 0; i < 8; ++i) {  // сформируем все возможные ходы
-			int checkX = position_x_ + kDx[i];
-			int checkY = position_y_ + kDy[i];
+			const int checkX = position_x_ + kDx[i];
+			const int checkY = position_y_ + kDy[i];
 			possibleMoves.push_back({checkX, checkY});
 		}
 
@@ -34,8 +34,8 @@ GameStatus GameLogic::CheckMoves(const unsigned int newPositionX,
 	return GameStatus::Fail;
 }
 
-void GameLogic::setFieldSize(const unsigned int length,
-							 const unsigned int widt) {
+void GameLogic::setFieldSize(const unsigned int &length,
+							 const unsigned int &widt) {
 	length_ = length;
 	width_ = widt;
 	setMaxNumberOfTurns();
@@ -47,8 +47,8 @@ void GameLogic::reset() {
 	number_of_turns_ = 0;
 }
 
-void GameLogic::setCurrentPosition(const unsigned int newPositionX,
-								   const unsigned int newPositionY) {
+void GameLogic::setCurrentPosition(const unsigned int &newPositionX,
+								   const unsigned int &newPositionY) {
 	position_x_ = newPositionX;
 	position_y_ = newPositionY;
 }

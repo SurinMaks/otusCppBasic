@@ -5,9 +5,9 @@
 class GameLogic {
    public:
 	GameLogic();
-	GameStatus CheckMoves(const unsigned int newPositionX,
-						  const unsigned int newPositionY);
-	void setFieldSize(const unsigned int length, const unsigned int width);
+	GameStatus CheckMoves(const unsigned int &newPositionX,
+						  const unsigned int &newPositionY);
+	void setFieldSize(const unsigned int &length, const unsigned int &width);
 	void reset();
 	void PrintInformation();
 
@@ -23,8 +23,8 @@ class GameLogic {
 	bool game_is_on_{false};
 	void setMaxNumberOfTurns();
 	void setNumberOfTurns();
-	void setCurrentPosition(const unsigned int newPositionX,
-							const unsigned int newPositionY);
+	void setCurrentPosition(const unsigned int &newPositionX,
+							const unsigned int &newPositionY);
 	void GameIsOn(bool status);
 
 	// отладочные функции
