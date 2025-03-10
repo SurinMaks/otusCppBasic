@@ -69,9 +69,9 @@ void MainWindow::OpenRuleWindow() {
 	ruleWindow->exec();
 }
 
-void MainWindow::ReceiveDataFromNewGameWindow(const uint length,
-											  const uint width,
-											  const QString name) {
+void MainWindow::ReceiveDataFromNewGameWindow(const uint &length,
+											  const uint &width,
+											  const QString &name) {
 	length_ = length;
 	width_ = width;
 	name_ = name;

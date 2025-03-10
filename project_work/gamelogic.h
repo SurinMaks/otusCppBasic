@@ -1,6 +1,7 @@
 #ifndef GAMELOGIC_H
 #define GAMELOGIC_H
 #include "GameStatus.h"
+#include <array>
 
 class GameLogic {
    public:
@@ -12,8 +13,9 @@ class GameLogic {
 	void PrintInformation();
 
    private:
-	const int kDx[8] = {2, 1, -1, -2, -2, -1, 1, 2};
-	const int kDy[8] = {1, 2, 2, 1, -1, -2, -2, -1};
+	static const int array_size = 8;
+	std::array<const int,array_size> kDx {2, 1, -1, -2, -2, -1, 1, 2};
+	std::array<const int,array_size> kDy {1, 2, 2, 1, -1, -2, -2, -1};
 	unsigned int length_{0};
 	unsigned int width_{0};
 	unsigned int position_x_{0};  // текущая позиция X

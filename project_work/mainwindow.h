@@ -27,8 +27,8 @@ class MainWindow : public QMainWindow {
 	void game_is_on();	// сигнал что игра началась
 
    public slots:
-	void ReceiveDataFromNewGameWindow(const uint length, const uint width,
-									  const QString name);
+	void ReceiveDataFromNewGameWindow(const uint &length, const uint &width,
+									  const QString &name);
 	void OpenNewGameWindow();  // Слот открытия окна Новая игра
 	void OpenAboutWindow();	 // Слот открытия окна "О программе"
 	void OpenRuleWindow();	// Слот открытия окна "Правила"
@@ -39,9 +39,9 @@ class MainWindow : public QMainWindow {
 	QGridLayout *layout_ = nullptr;
 	uint length_{0};
 	uint width_{0};
-	QString name_{};
-	GameLogic gameLogic_{};
-	Timer timer{};
+	QString name_;
+	GameLogic gameLogic_;
+	Timer timer;
 	const char *kHiddenX{"hiddenX"};
 	const char *kHiddenY{"hiddenY"};
 	void EraseLayout(QGridLayout *layout);
