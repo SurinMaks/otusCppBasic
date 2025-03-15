@@ -2,7 +2,7 @@
 #include <vector>
 #include <QDebug>
 
-GameLogic::GameLogic() {}
+GameLogic::GameLogic() = default;
 
 GameStatus GameLogic::CheckMoves(const unsigned int &newPositionX,
 								 const unsigned int &newPositionY) {
