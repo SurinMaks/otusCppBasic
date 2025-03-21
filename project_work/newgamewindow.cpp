@@ -26,7 +26,7 @@ void newGameWindow::BtPressOK() {
 									 ui->le_userName->text());
 		this->close();
 	} else {
-		QMessageBox msq;
+		const QMessageBox msq;
 		msq.warning(this, "Предупрежение",
 					"Размеры игрового поля не могут быть меньше " +
 						QString::number(kMinValueFieldSize));

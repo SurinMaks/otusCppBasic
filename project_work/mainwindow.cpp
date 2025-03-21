@@ -4,6 +4,7 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QMessageBox>
+#include <qstyle.h>
 
 #include "./ui_mainwindow.h"
 #include "GameStatus.h"
@@ -103,6 +104,7 @@ void MainWindow::CreateGameField() {
 
 void MainWindow::setFlagGameStart() {
 	gameLogic_.reset();
+	prevButton_ = nullptr;
 	timer.StartTimer();
 	emit game_is_on();
 }
@@ -155,9 +157,15 @@ void MainWindow::setHidePropertyXY(QPushButton *button, uint X, uint Y) {
 }
 
 void MainWindow::clickButton(QPushButton *button) {
+	button->setIcon(QApplication::style()->standardIcon(QStyle::SP_MediaStop));
 	button->setCheckable(true);	 // Включаем режим "checkable"
 	button->setChecked(true);	 // Оставляем кнопку в нажатом состоянии
 	button->setEnabled(false);
+	if(prevButton_ != nullptr){
+		prevButton_->setIcon(QIcon()); //убрали иконку с предыдующего шага
+	}
+	prevButton_ = button;
+
 }
 
 std::string MainWindow::getName() const { return name_.toStdString(); }

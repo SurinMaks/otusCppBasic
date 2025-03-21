@@ -49,5 +49,6 @@ class MainWindow : public QMainWindow {
 	void setHidePropertyXY(QPushButton *button, uint X, uint Y);
 	void clickButton(QPushButton *button);
 	std::string getName() const;
+	QPushButton *prevButton_ = nullptr; //предыдующий шаг
 };
 #endif	// MAINWINDOW_H
