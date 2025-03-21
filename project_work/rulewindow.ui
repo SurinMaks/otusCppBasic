@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Правила игры</string>
   </property>
   <widget class="QPlainTextEdit" name="tpe_rule">
    <property name="enabled">
@@ -26,8 +26,7 @@
     </rect>
    </property>
    <property name="plainText">
-    <string>Правила игры:
-1. Перед вами поле разбитое на квадраты;
+    <string>1. Перед вами поле разбитое на квадраты;
 2. Каждый квадрат это место куда можно выполнить ход;
 3. Игрок можно выполнить первый ход в любом месте поля;
 4. После необходимо выполнять ходы буквой Г, как фигура коня в шамхатах;
